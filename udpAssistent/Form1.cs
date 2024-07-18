@@ -20,8 +20,8 @@ namespace udpAssistent
     }
     public partial class Form1 : Form
     {
-        ContextMenuStrip updServerMS = new ContextMenuStrip();
-        ContextMenuStrip updClientMS = new ContextMenuStrip();
+        ContextMenuStrip udpServerMS = new ContextMenuStrip();
+        ContextMenuStrip udpClientMS = new ContextMenuStrip();
 
         TreeNode treeNodeUdpServer = new TreeNode("UDP Server");
         TreeNode treeNodeUdpClient = new TreeNode("UDP Client");
@@ -35,12 +35,12 @@ namespace udpAssistent
             ToolStripMenuItem SMSCreate = new ToolStripMenuItem();
             SMSCreate.Text = "Create Service";
             SMSCreate.Click += SMSCreate_Click;
-            updServerMS.Items.Add(SMSCreate);
+            udpServerMS.Items.Add(SMSCreate);
 
             ToolStripMenuItem CMSCreate = new ToolStripMenuItem();
             CMSCreate.Text = "Create Client";
             CMSCreate.Click += CMSCreate_Click;
-            updClientMS.Items.Add(CMSCreate);
+            udpClientMS.Items.Add(CMSCreate);
 
             ToolStripMenuItem closeServer = new ToolStripMenuItem();
             closeServer.Text = "Close";
@@ -48,11 +48,11 @@ namespace udpAssistent
             nodeMenu.Items.Add(closeServer);
 
             treeNodeUdpServer.Tag = UDP_TYPE.UDP_TYPE_SERVER;
-            treeNodeUdpServer.ContextMenuStrip = updServerMS;
+            treeNodeUdpServer.ContextMenuStrip = udpServerMS;
             treeView1.Nodes.Add(treeNodeUdpServer);
 
             treeNodeUdpClient.Tag = UDP_TYPE.UDP_TYPE_CLIENT;
-            treeNodeUdpClient.ContextMenuStrip = updClientMS;
+            treeNodeUdpClient.ContextMenuStrip = udpClientMS;
             treeView1.Nodes.Add(treeNodeUdpClient);
         }
 

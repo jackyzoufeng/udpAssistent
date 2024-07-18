@@ -20,7 +20,6 @@ namespace udpAssistent
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             bool isNum = Int32.TryParse(textBox1.Text, out port);
             if (!isNum)
             {

@@ -47,7 +47,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(254, 134);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(186, 31);
             this.textBox1.TabIndex = 1;
@@ -55,7 +55,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(519, 306);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 43);
             this.button1.TabIndex = 2;
@@ -66,7 +66,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(391, 306);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 43);
             this.button2.TabIndex = 3;
@@ -84,11 +84,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreateUdpServer";
-            this.Text = "创建UDP服务器";
+            this.Text = "创建UDP服务";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,6 +44,11 @@ namespace udpAssistent
                 serverip = ip;
                 serverport = port;
                 serverEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
+                udpClient.Connect(serverEndPoint);
+                if (rec == null)
+                {
+                    startRecvThread();
+                }
             }
             catch (Exception ex)
             {
@@ -79,7 +84,8 @@ namespace udpAssistent
         public void sendmessage(string msg)
         {
             byte[] data = Encoding.UTF8.GetBytes(msg);
-            int send = udpClient.Send(data, data.Length, serverEndPoint);
+            //int send = udpClient.Send(data, data.Length, serverEndPoint);
+            int send = udpClient.Send(data, data.Length);
             if (context != null)
             {
                 context.Post(new SendOrPostCallback((o) =>
@@ -88,10 +94,6 @@ namespace udpAssistent
                 }), ((System.Net.IPEndPoint)udpClient.Client.LocalEndPoint).Port);
             }
             Console.WriteLine($"send length:{send}");
-            if (rec == null)
-            {
-                startRecvThread();
-            }
         }
 
         private void startRecvThread()

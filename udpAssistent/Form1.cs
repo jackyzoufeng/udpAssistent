@@ -203,11 +203,15 @@ namespace udpAssistent
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (TreeNode item in treeNodeUdpServer.Nodes)
+            TreeNode[] nodes1 = new TreeNode[treeNodeUdpServer.Nodes.Count];
+            treeNodeUdpServer.Nodes.CopyTo(nodes1, 0);
+            TreeNode[] nodes2 = new TreeNode[treeNodeUdpClient.Nodes.Count];
+            treeNodeUdpClient.Nodes.CopyTo(nodes2, 0);
+            foreach (TreeNode item in nodes1)
             {
                 CloseNode(item);
             }
-            foreach (TreeNode item in treeNodeUdpClient.Nodes)
+            foreach (TreeNode item in nodes2)
             {
                 CloseNode(item);
             }

@@ -166,12 +166,17 @@ namespace udpAssistent
         private void CloseServer_Click(object sender, EventArgs e)
         {
             TreeNode CurrentNode = treeView1.SelectedNode;
-            if (CurrentNode.Tag.GetType() == typeof(UdpManager))
+            CloseNode(CurrentNode);
+        }
+
+        private void CloseNode(TreeNode node)
+        {
+            if (node.Tag.GetType() == typeof(UdpManager))
             {
-                UdpManager um = (UdpManager)CurrentNode.Tag;
+                UdpManager um = (UdpManager)node.Tag;
                 um.stop();
 
-                treeNodeUdpServer.Nodes.Remove(CurrentNode);
+                treeNodeUdpServer.Nodes.Remove(node);
                 foreach (TabPage page in tabControl1.TabPages)
                 {
                     if (um == page.Tag)
@@ -180,12 +185,12 @@ namespace udpAssistent
                     }
                 }
             }
-            else if (CurrentNode.Tag.GetType() == typeof(UdpClientManager))
+            else if (node.Tag.GetType() == typeof(UdpClientManager))
             {
-                UdpClientManager ucm = (UdpClientManager)CurrentNode.Tag;
+                UdpClientManager ucm = (UdpClientManager)node.Tag;
                 ucm.stop();
 
-                treeNodeUdpServer.Nodes.Remove(CurrentNode);
+                treeNodeUdpServer.Nodes.Remove(node);
                 foreach (TabPage page in tabControl1.TabPages)
                 {
                     if (ucm == page.Tag)
@@ -193,6 +198,18 @@ namespace udpAssistent
                         tabControl1.TabPages.Remove(page);
                     }
                 }
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (TreeNode item in treeNodeUdpServer.Nodes)
+            {
+                CloseNode(item);
+            }
+            foreach (TreeNode item in treeNodeUdpClient.Nodes)
+            {
+                CloseNode(item);
             }
         }
     }
